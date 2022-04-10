@@ -41,15 +41,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <title>Todo List</title>
+
+    <style>
+        section{
+            background-image: url("./blob.svg");
+            background-repeat: no-repeat;
+            background-size : cover;
+            background-attach: fixed;
+        }
+
+        #card{
+            background-color : rgba(255, 255, 255, 0.8);
+            border-radius : 10px;
+        }
+    </style>
+
 </head>
 <body>
     <section class="min-vh-100" style="background-color: #eee;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-lg-9 col-xl-7">
-                    <div class="card rounded-5">
+                <div class="col col-lg-9 col-xl-7" >
+                    <div class="card" id="card">
                         <div class="card-body p-4">
-                            <h4 class="text-center my-3 pb-3">To-Do List</h4>
+                            <h2 class="text-center my-3 pb-3">To-Do List</h2>
                             
                             <?php if(isset($errors)){ ?>
                                 <div class="col-10 text-center text-danger"> <?php echo $errors; ?> </div>
