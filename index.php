@@ -3,11 +3,12 @@
     $db = mysqli_connect('localhost', 'root', '', 'todo');
     $errors = "";
 
+    //Insert task to DB
     if(isset($_POST['submit'])){
         $task = $_POST['task'];
 
         if(empty($task)){
-            $errors = "Enter an item";
+            $errors = "Task cannot be empty!";
         }
         else{
             mysqli_query($db, "INSERT INTO todo (task) VALUES ('$task')");
@@ -15,13 +16,14 @@
         }
     }
 
-    //delete todo task
+    //Delete task
     if(isset($_GET['del-task'])){
         $id = $_GET['del-task'];
         mysqli_query($db, "DELETE FROM todo WHERE id=$id");
         header('location: index.php');
     }
 
+    //Get all tasks
     $tasks = mysqli_query($db, "SELECT * FROM todo");
 ?>
 
@@ -31,7 +33,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo app</title>
+    <title>Todo List</title>
 </head>
 <body>
     <div class="heading">Todo List</div>
